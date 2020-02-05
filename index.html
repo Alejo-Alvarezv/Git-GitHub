@@ -1,286 +1,352 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Guía del Curso profesional de Git y GitHub</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    <link rel="manifest" href="assets/manifest.json">
-    <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#014164">
-    <meta name="msapplication-TileColor" content="#014164">
-    <meta name="msapplication-TileImage" content="assets/mstile-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!-- Viewport, Google Fonts y CSS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Quicksand" rel="stylesheet">
-    <link rel="stylesheet" href="assets/index.css">
-    <!-- Cononical -->
-    <link rel="canonical" href="https://joaquinaraujo.github.io/git-github">
-</head>
-<body>
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="colorPrimario">Guía del Curso profesional de Git y GitHub</h1>
-        </div>
-    </div>
+<html class="no-js" lang="en"> 
+    <head>
+        <meta charset="utf-8">
+        <title>Professional Guide Git and Github</title>
+        <meta name="description" content="">
+        <meta name="author" content="ticlekiwi">
 
-    <div class="container">
-        <section>
-            <h2>Sistemas de Control de Versiones</h2>
+        <meta http-equiv="cleartype" content="on">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <h3>¿Qué es un Sistema de Control de Versionas?</h3>
-            <p>
-                Un <strong>Version Control Systems (VCS)</strong> es una herramienta que ayuda a administrar los cambios en el código fuente a lo largo del tiempo. Este sistema se encarga de monitorear el código e informa si el mismo ha sido modificado con el fin de registrar dicho cambio, es así de simple, tal como lo lees.
-                <img src="https://www.git-tower.com/learn/content/01-git/01-ebook/en/02-desktop-gui/02-basics/01-what-is-version-control/what-is-vcs.png" alt="Version Control System" class="img-responsive">
-            </p>
-            <p>
-                Existen diferentes tipos de <strong>Sistemas de Control de Versiones</strong>, estan los:
-                <!-- Lista desordenada -->
+        <link rel="stylesheet" href="css/hightlightjs-dark.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,500|Source+Code+Pro:300" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css" media="all">
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+
+    <body>
+        <div class="left-menu">
+            <div class="content-logo">
+                <img alt="Logo" title="Guide professional git and github" src="images/logo.png" height="32" />
+                <span>Git and Github</span>
+            </div>
+            <div class="content-menu">
                 <ul>
-                    <li><strong>Locales:</strong> En este tipo el repositorio vive en tu computador.</li>
-                    <li><strong>Centralizados:</strong> Existe un repositorio central (en un super-servidor) donde se encuentra todo el código.</li>
-                    <li><strong>Distribuidos:</strong> Cada programador tiene una copia propia en su computador del repositorio original, de esta forma los cambios que realice de forma local no afectarán al resto de programadores que se encuentran trabajando para el proyecto. <strong>Git es distribuido</strong>.</li>
-                </ul>
-            </p>
-
-            <h3>¿Que es Git?</h3>
-            <p>
-                <strong>Git</strong> es un <strong>Sistema de Control de Versiones</strong>, de hecho, es el más moderno y usado en el mundo. <strong>Git</strong> fue desarrollado por <strong>Linus Torvalds</strong> en el 2005 y es un proyecto de <strong>Open Source</strong> muy maduro y en constante mantenimiento por la comunidad.
-            </p>
-            <p><strong>Git</strong> es tan confiable que una cantidad asombrosa de proyectos confian en el, incluso la <strong><a href="https://github.com/nasa" target="_blank">NASA</a></strong>.</p>
-
-            <h3>Los tres estados de Git</h3>
-            <p>
-                Lo más importante que se debe conocer de <strong>Git</strong> son sus tres estados principales:
-                <img src="https://git-scm.com/book/en/v2/images/areas.png" alt="Working Directory, Staging Area and Git Repository" class="img-responsive">
-                <!-- Lista desordenada -->
-                <ul>
-                    <li><strong>Working Directory:</strong> Es al lugar donde se trabajan los archivos.</li>
-                    <li><strong>Staging Area:</strong> Es el área de preparación de los archivos que serán registrados en el repositorio.</li>
-                    <li><strong>Git Repository:</strong> Es el lugar donde se almacena el código de forma segura.</li>
-                </ul>
-            </p>
-
-            <h3>¿Que es GitHub?</h3>
-            <p>
-                <strong>GitHub</strong> es una plataforma de alojamiento de código para control de versiones y colaboración. Te permite a ti y a otros trabajar juntos en proyectos desde cualquier lugar.
-                <img src="https://www.aha.io/assets/github.7433692cabbfa132f34adb034e7909fa.png" alt="GitHub" class="img-responsive">
-            </p>
-
-            <h3>Instalación y configuración de Git</h3>
-            <p>
-                Para instalar <strong>Git</strong> en <strong>Linux</strong> especificamente en las distribución de <strong>Debian/Ubuntu</strong> o derivadas, se ejecuta el comando:
-                <!-- Lista desordenada -->
-                <ul>
-                    <li><kbd>apt-get install git</kbd> Instala <strong>Git</strong> en <strong>Linux</strong>.</li>
-                    <li><kbd>git --version</kbd> Muestra la versión de <strong>Git</strong> instalada (este comando ayuda a verificar si <strong>Git</strong> se instaló correctamente).</li>
-                    <li><kbd>git config --global user.email [e@mail.com]</kbd> Establece un correo electronico.</li>
-                    <li><kbd>git config --global user.name [username]</kbd> Establece un nombre de usuario.</li>
-                    <li><kbd>git config --global color.ui [true or false]</kbd> Habilita colores en la UI.</li>
-                </ul>
-            </p>
-            <p>Puedes obtener más información sobre las configuraciones de <strong>Git</strong> en la <a href="https://git-scm.com/" target="_blank">Documentación Oficial de Git</a>.</p>
-
-            <h2>Flujos de trabajo en Git</h2>
-
-            <h3>Creando y Eliminando Repositorios (git init)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git init [dir-name]</kbd> Crea un repositorio, el nombre de la carpeta es opcional, en caso de colocarlo se creará dicho directorio, en caso de no hacerlo simplemente se creará el repositorio partiendo de la carpeta actual.</li>
-                <li><kbd>rm -rf .git</kbd> Eliminar la carpeta <strong>.git</strong> es lo mismo a eliminar el repositorio (de forma local).</li>
-            </ul>
-
-            <h3>Agregando, quitando y viendo el estatus de archivos (git add | rm | status)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git add -A</kbd> Agrega todos los archivos del <strong>Working Directory</strong> al <strong>Staging Area</strong>.</li>
-                <li><kbd>git add [file or directory]</kbd> Agrega un archivo o carpeta del <strong>Working Directory</strong> al <strong>Staging Area</strong>.</li>
-                <li><kbd>git add -n [file or directory]</kbd> Simula el agregado de un archivo o directorio al <strong>Staging Area</strong> pero la verdad no lo hace.</li>
-                <li><kbd>git rm --cached [file or directory]</kbd> Elimina un archivo o carpeta del <strong>Staging Area</strong> y lo deja en el <strong>Working Directory</strong>.</li>
-                <li><kbd>git rm -f [file or directory]</kbd> Fuerza la eliminación de un archivo o carpeta del <strong>Staging Area</strong> tanto así que hasta lo borra del <strong>Working Directory</strong>.</li>
-                <li>
-                    <kbd>git status</kbd> Muestra el estado de los archivos o directorios.
-                    <!-- Lista desordenada -->
-                    <ul>
-                        <li><strong class="red">Los archivos que salen en rojo:</strong> Se encuentran en el <strong>Working Directory</strong>.</li>
-                        <li><strong class="green">Los archivos que salen en verde:</strong> Se encuentran en el <strong>Staging Area</strong>.</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3>Confirmando cambios (git commit)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git commit -m "[description...]"</kbd> Agrega los archivos del <strong>Staging Area</strong> al <strong>Git Repository</strong> con una descripción.</li>
-                <li><kbd>git commit -m --amend</kbd> En caso de equivocarse con algún registro (commit) con la bandera <strong>--amend</strong> se puede rectificar y concatenar los cambios al último commit. Si se usa la bandera <strong>-m "[description...]"</strong> el nuevo mensaje sobrescribirá al anterior, en caso de no hacerlo se mantendrá el antiguo.</li>
-            </ul>
-
-            <h3>Etiquetando confirmaciones (git tag)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git tag -a [1.x] -m "[descripcion]"</kbd> Registra un tag.</li>
-                <li><kbd>git tag -l</kbd> Lista los tags existentes..</li>
-                <li><kbd>git tag [1.x] [Commit HASH]</kbd> Le registra un tag a un Commit en especifico por medio de su HASH.</li>
-                <li><kbd>git tag -f -a [1.x] -m "[description...]" [Commit HASH]</kbd> Permite renombrar un tag.</li>
-                <li><kbd>git tag -d [1.x]</kbd> Elimina un tag.</li>
-            </ul>
-
-            <h3>Revisando la historia de nuestro proyecto (git log)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git log</kbd> Muestra el historial de los registros (commits) del proyecto con sus respectivos autores, hora especifica y descripciones (en caso de tenerlo).</li>
-                <li><kbd>git config --global alias.[superlog] "log ..."</kbd> Permite agregarle alias a <code>git log</code></li>
-                <p>
-<pre>
-    git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-</pre>
-                </p>
-            </ul>
-
-            <h3>Revisando los cambios entre versiones (git diff)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git diff [Commit HASH]</kbd> Muestra los cambios que se han realizados entre <strong>el estado actual</strong> y <strong>el commit</strong> especificado por su HASH.</li>
-                <li><kbd>git diff [Commit HASH #1] [Commit HASH #2]</kbd> Muestra los cambios que se han realizados entre <strong>el commit #1</strong> y <strong>el commit #2</strong> especificado por su HASH.</li>
-            </ul>
-            <p>Cuando las comparaciones salen en <strong class="red">rojo significa que se eliminaron cosas</strong> en cambio si sale en <strong class="green">verde significa que se agregaron cosas</strong>.</p>
-
-            <h3>Revertir cambios en Git</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git reset --soft [HASH]</kbd> Partiendo de un Commit identificado por su HASH, elimina todos los Commits futuros a el y <strong class="green">mantiene</strong> todos esos cambios (registrados en los Commits eliminados) en el <strong>Staging Area</strong>.</li>
-                <li><kbd>git reset --mixed [HASH]</kbd> Partiendo de un Commit identificado por su HASH, elimina todos los Commits futuros a el y <strong class="green">mantiene</strong> todos esos cambios (registrados en los Commits eliminados) en el <strong>Working Directory</strong>.</li>
-                <li><kbd>git reset --hard [HASH]</kbd> Partiendo de un Commit identificado por su HASH, elimina todos los Commits futuros a el y <strong class="red">no mantiene</strong> los cambios ni en el <strong>Staging Area</strong> ni en el <strong>Working Directory</strong> de los Commits eliminados.</li>
-            </ul>
-
-            <h2>Múltiples entornos de trabajo</h2>
-
-            <h3>Múltiples variantes del repositorio (git branch)</h3>
-            <p>Una rama es una línea alterna del tiempo (del proyecto). La rama por defecto es <code>master</code>, la rama de <strong>GitHub Pages</strong> es <code>gh-pages</code> y cuando se trabaja como colaborador se identifica el proyecto principal con la rama <code>upstream</code>.</p>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git branch [name-branch]</kbd> Crea una nueva rama.</li>
-                <li><kbd>git checkout -b [name-branch]</kbd> Crea una nueva rama y se posiciona en ella.</li>
-                <li><kbd>git branch -l</kbd> Lista todos las ramas que existen.</li>
-                <li><kbd>git branch -d [name-branch]</kbd> Elimina una rama. Con <code>-D</code> se fuerza el borrado.</li>
-                <li><kbd>git branch -m [old-name-branch] [new-name-branch]</kbd> Permite renombrar una nueva rama.</li>
-            </ul>
-
-            <h3> Moviéndonos entre ramas y versiones (git checkout)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git checkout [name-branch or commit-HASH]</kbd> Permite moverse entre ramas o entre los Commits de una rama.</li>
-            </ul>
-
-            <h3>Mezclando ramas y resolviendo conflictos</h3>
-            <p>
-                En <strong>Git</strong> se pueden mezclar ramas, al realizar una fusión ocurrirá que la <strong class="green">operación se realizó con éxito</strong> (<strong>Fast-Forward</strong>) o que <strong class="red">la operación presentó unos conflictos</strong> (<strong>Manual Merge</strong>) ¿no te quedó claro?.
-                <!-- Lista desordenada -->
-                <ul>
-                    <li><strong class="green">Fast-Forward:</strong> Es lo que ocurre cuando ocurre un cambio en una rama y al fusionarla con la otra no presenta conflictos ¿por qué no presenta problemas? Porque solo en una rama ocurrió un cambio en la misma línea de código por lo tanto se agrega la nueva y se reemplaza la vieja.</li>
-                    <li>
-                        <strong class="red">Manual Merge:</strong> Es lo que ocurre cuando en ambas ramas se realizaran modificaciones afectando las mismas líneas de código ¿que pasa con esto? Sencillo, <strong>Git</strong> te pedirá que elijas con cual fragmento de código (cambio) te quedarás y lo dividirá con unas flechas, por ejemplo:
-                        <p>
-<pre>
-     <<<<< <strong>[Rama A]</strong>
-     <strong class="red">[Aquí estará el código de la modificación  número 1]</strong>
-     =====
-     <strong class="red">[Aquí estará el código de la modificación  número 2]</strong>
-     >>>>> <strong>[Rama B]</strong>
-</pre>
-                        </p>
+                    <li class="scroll-to-link active" data-target="get-started">
+                        <a>GET STARTED</a>
                     </li>
+                    <li class="scroll-to-link" data-target="get-VersionControlSystem">
+                        <a>Version Control System</a>
+                    </li>
+                    <li class="scroll-to-link" data-target="get-Git">
+                        <a>What is Git</a>
+                    </li>
+                    <li class="scroll-to-link" data-target="get-InstallationConfiguration">
+                        <a>Git Installation and Configuration</a>
+                    </li>                
+                    <li class="scroll-to-link" data-target="get-Workflows">
+                        <a>Workflows in Git</a>
+                    </li>
+                    <li class="scroll-to-link" data-target="get-Enviroments">
+                        <a>Multiple work enviroments</a>
+                    </li>                                     
                 </ul>
-            </p>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git merge [name-branch]</kbd> Fusiona una rama con la actual (con la rama en la que nos encontramos posicionados).</li>
-            </ul>
-
-            <h3>Guardando cambios temporalmente (git stash)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git stash</kbd> Guarda el status de forma temporal (pero los archivos deben estar en el <strong>Staging Area</strong>).</li>
-                <li><kbd>git stash list</kbd> Lista los Stashes.</li>
-                <li><kbd>git stash drop stash@{#}</kbd> Elimina un Stash por medio de su ID.</li>
-                <li><kbd>git stash apply</kbd> Aplica el último Stash creado.</li>
-            </ul>
-
-            <h3>Cherry-Pick moviendo commits selectivamente de una rama a otra</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git cherry-pick [commit HASH] [name-branch]</kbd> Mueve un commit hecho en una rama (Branch A), a otra rama (Branch B).</li>
-            </ul>
-            
-            <h2>GitHub</h2>
-
-            <h3>Clonando repositorios remotos (git clone/fork)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git clone [SSH/HTTPS]</kbd> Clona un repositorio desde GitHub a nuestro equipo local.</li>
-            </ul>
-
-            <h3>Añadiendo un repositorio remoto a uno local (git remote)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git remote add [origin] [SSH/HTTPS]</kbd> Conecta un repositorio con nuestro equipo local.</li>
-                <li><kbd>git remote -v</kbd> Lista las conexiones existentes.</li>
-                <li><kbd>git remote remove [origin]</kbd> Elimina una conexión con algún repositorio.</li>
-            </ul>
-
-            <h3>Trayendo cambios desde el repositorio remoto (git fetch/pull)</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git fetch [origin]</kbd> Descarga cambios de <strong>GitHub</strong> y crea una rama llamada <code>origin/master</code> que luego se debe fusionar con la <code>master</code> de nuestro entorno local.</li>
-                <li><kbd>git pull [origin]</kbd> Descarga cambios de <strong>GitHub</strong> y los fusiona automáticamente la rama espejo <code>origin/master</code> a la rama <code>master</code> de nuestro entorno local.</li>
-            </ul>
-
-            <h3>Enviando cambios al repositorio remoto</h3>
-            <!-- Lista desordenada -->
-            <ul>
-                <li><kbd>git push -u [origin] [name-branch]</kbd> Empujar una rama al repositorio remoto en <strong>GitHub</strong>.</li>
-                <li><kbd>git push [origin] [name-branch] --tags</kbd> Enviar los TAGS al repositorio remoto en <strong>GitHub</strong>.</li>
-            </ul>
-        </section>
-
-        <section>
-            <div id="disqus_thread" class="disqus"></div>
-        </section>
-    </div>
-
-    <!-- Pie de página -->
-    <footer>
-        <!-- Sobre el autor @JoaquinAraujoJS -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h3 class="text-center">Acerca del autor</h3>
-                    <p class="foo text-center">Hola, mi nombre es <strong>Alejandro Vargas Alvarezo</strong>, soy Venezolano, natal de la cálida y soleada ciudad de <strong>Maracaibo</strong>. Soy de los que apuesta por <strong>JavaScript</strong> porque sencillamente <strong>¡JavaScript se comió al mundo!</strong> Me enfoco más al área del backend (con <strong>Nodejs</strong>).</p>
-                    <p class="foo text-center"><strong>No me limito a aprender cosas nuevas</strong> ya que siempre ando en constante aprendizaje. <strong>Me gusta compartir lo que aprendo</strong> es por ello que realicé esta guía.</p>
-                    <p class="foo text-center">Si quieres comunicarte conmigo puedes hacerlo a través de mi cuenta en twitter <strong><a href="https://twitter.com/JoaquinAraujoJS" target="_blank">@JoaquinAraujoJS</a></strong>. Estoy abierto a cualquier proyecto <strong>¡con ganas de cambiar al mundo!</strong></p>
-                </div>
-                <div class="col-sm-4">
-                </div>
             </div>
         </div>
-        <!-- Créditos a Platzi -->
-        <div class="container-fluid">
-            <p class="text-center colorPrimario">Esta guía fue realizada por Alejandro Vargas Alvarez </p>
-        </div>
-    </footer>
+        <div class="content-page">
+            <div class="content-code"></div>
+            <div class="content">
+                <div class="overflow-hidden content-section" id="content-get-started">
+                    <h1 id="get-started">Get started</h1>
+                    <pre><code>
+API Endpoint
+API Endpointapi.westeros.com/
+                    </code> </pre>
+                    <p>
+                        The Westeros API provides programmatic access to read Game of Thrones data. Retrieve a character, provide an oauth connexion, retrieve a familly, filter them, etc. 
+                    </p>
+                    <p>
+                        To use this API, you need an <strong>API key</strong>. Please contact us at <a href="mailto:jon.snow@nightswatch.wes">jon.snow@nightswatch.wes</a> to get your own API key. 
+                    </p>
+                </div>
 
-    
-</body>
+                <div class="overflow-hidden content-section" id="content-get-VersionControlSystem">
+                    <h2 id="get-VersionControlSystem">Version Control System</h2>
+                    <pre><code>
+                    </code> </pre>
+                    <p align="justify">
+                        <strong>¿What is a Version Control System? </strong> <br>
+                        A VCS is a tool that helps manage changes in the source code over time. This sytem is responsible for monitoring the code and informs if it has been modified inder to register such change                        
+                    </p>
+                    <p align="justify">
+                        There are different types of <strong>Version Control System</strong>, there are: <br>
+                        <ul align="justify">
+                            <li><strong>Locals:</strong> In this type el repository lives in your computer </li>
+                            <li><strong>Centralized</strong>There is a central repository (a super server) where all the codes is located</li>                            
+                            <li><strong>Distributed</strong>Each programmer has his own copy in his computer of the original repository, so the changes you make locally will no affect the rest of the rest 
+                                of the programmer who are working for the project - <strong>GIT is Distributed</strong>
+                            </li>
+                          </ul>
+                    </p>
+                </div>
+
+                <div class="overflow-hidden content-section" id="content-get-Git">
+                    <h2 id="get-Git">¿What is GIT?</h2>
+                    <pre><code>
+                    </code></pre>
+                    
+                    <p align="justify">
+                        Git is a <strong>Version Control System</strong>, in fact is the most modern and used in the world. Git was developed by <strong>Linux Torvalds</strong>
+                        in 2005, is a open soruce project constantly maintained by the community. <br><br>
+                        
+                        <strong>Three states of Git: </strong><br>
+
+                        The most important thing to know about <strong>Git</strong> are its three main states: <br>
+                        <img alt="Logo" title="Guide professional git and github" src="https://git-scm.com/book/en/v2/images/areas.png"/> <br><br>
+
+                        <ul align="justify">
+                            <li><strong>Workin Directory:</strong> It is the where the files are worked. </li>
+                            <li><strong>Staging area:</strong> It is the area of preparation of the files that will be registered in the repository.</li>
+                            <li><strong>Git repository</strong>It is the place where the code is stored securely.</li>
+                        </ul>
+
+                    </p>
+                </div>
+
+                <div class="overflow-hidden content-section" id="content-get-InstallationConfiguration">
+                    <h2 id="get-InstallationConfiguration">Git Installation and Configuration</h2>
+                    <pre><code class="bash">
+Install GIT on linux:
+- apt-get install git
+
+Show the version of GIT installed:
+- git --version
+
+Establish an email:
+- git config --global user.email [e@e.com]
+
+Set a username:
+- git config --global user.name [username]
+
+Enable colors in the UI:
+- git config --global color.ui [true or false]
+                    </code></pre>
+
+                    <p align="justify">
+                        To install <strong>GIT</strong> on <strong>Linux</strong> specifically on <strong>Debian/Ubuntu</strong> or derived distributions, the command is executed: <br>
+                        <ul>
+                            <li><code class="higlighted">apt-get install git</code></li>
+                            <li><code class="higlighted">git -- version</code></li>
+                            <li><code class="higlighted">git config --global user.email [email@email.com]</code></li>
+                            <li><code class="higlighted">git config --global user.name [username]</code></li>
+                            <li><code class="higlighted">git config --global</code></li>
+                            <li><code class="higlighted">git config --global color.ui [true or false]</code></li>
+                        </ul>
+                        <p align="justify">
+                        You can get more informaciòn about strong GIT settings in the <a href="https://git-scm.com/" target="_blank">Official Git Documentation</a>
+                        </p>                        
+                    </p>                    
+                </div>
+
+                <div class="overflow-hidden content-section" id="content-get-Workflows">
+                    <h2 id="get-Workflows">Workflows in Git</h2>
+                    <pre><code class="bash">
+
+
+
+                        
+Create a repository:
+- git init [dir-name]
+
+Delete repository:
+-  rm -rf .git
+
+Add all the files in the Working Directory 
+to the Staging Area:
+- git add -A
+
+Add a file or folder from the Working Directory
+to the Staging Area
+- git add [file or directory]
+
+Delete a file or folder the Stanging area
+and leave it in the Working directory:
+- git rm --cached [file or directory]
+
+It forces the deletion of a file or folder from
+the Staging Area so much that it even deletes
+it from the Working Directory.
+- git rm -f [file or directory
+
+Show the status of files or directories
+- git status
+
+Add the Staging Area files to the Git 
+Repository with a description.
+- git commit -m "[Description]"
+
+Rectify and concatenate the changes to the last commit
+- git commit -m --amend
+
+Register a tag
+- git tag -a [1.x] -m "[descripcion]"
+
+List existing tags
+- git tag -l
+
+It registers a tag to a specific Commit through its HASH.
+- git tag [1.x] [Commit HASH]
+
+Rename a tag
+- git tag -f -a [1.x] -m "[description...]" [Commit HASH]
+
+Delete a tag
+- git tag -d [1.x]
+
+Show the history of records (commits)
+- git log
+
+Shows the changes that have been made between
+the current status and the commit specified by your HASH.
+ - git diff [commit HASH]
+
+Shows the changes that have been made between 
+commit # 1 and commit # 2 specified by your HASH.
+- git diff [Commit HASH #1] [Commit HASH #2]
+
+Starting from a Commit identified by its HASH, it eliminates
+all future Commits to it and keeps all those changes 
+(registered in the deleted Commits) in the Staging Area .
+- git reset --soft [HASH]
+
+Starting from a Commit identified by its HASH, it eliminates 
+all future Commits to it and keeps all those changes
+(registered in the deleted Commits) in the Working Directory .
+- git reset --mixed [HASH]
+
+Starting from a Commit identified by its HASH, it eliminates 
+all future Commits to it and does not keep the changes either
+in the Staging Area or in the Working Directory of the
+deleted Commits.
+- git reset --hard [HASH]
+
+                    </code></pre>
+                    <p align="justify">
+                        <strong>Creating and deleting repositories (git init)</strong> <br><br>
+                        - Create a repository, the name of the folder is optional, in case of placing it said directory will be created, in case of not doing so, the repository
+                        will be created starting from the current folder. <br>
+                        <code class="higlighted">git init [dir-name]</code> <br><br>
+
+                        - Deleting the <strong>.git</strong> folder is the same as deleting the repository (locally). <br>
+                        <code class="higlighted">rm -rf .git</code> <br> <br>
+                        <strong>Adding, removing and viewing file status (git add | rm | status )</strong> <br> 
+                        <ul align="justify">
+                            <li><code class="higlighted">git add -A</code>=>Add all the files in the <strong>Working directory</strong> to the <strong>Stanging area</strong> </li>
+                            <li><code class="higlighted">git add [file or directory]</code> => Add a file or folder from the <strong> Working Directory</strong> to the <strong> Staging Area</strong></li>
+                            <li><code class="higlighted">git rm --cached [file or directory]</code> => Delete a file or folder the <strong> Stanging area</strong> and leave it in the <strong> Working directory</strong></li>
+                            <li><code class="higlighted">git rm -f [file or directory]</code> => It force the deletion of a file or folder from the <strong>Stangin area</strong> so much that it even deletes it form the<strong> Working directory</strong></li>
+                            <li><code class="higlighted">git status</code> => Show the status of files or directories </li>
+                              
+                            <strong class="red">File that appear in red :</strong> They are in the <strong>Working Directory.</strong> <br>
+                            <strong class="green">File that appear in green:</strong> They ara in the <strong>Staging Area</strong>.                                                                 
+                        </ul> 
+                        <p>
+                            <strong>Confirming changes (git commit)</strong> <br> 
+                        </p>
+                        <ul>
+                            <li><code class="higlighted">git commit -m "[Description]"</code>=> Add the <strong>stanging area</strong> files to the <strong>Git repository</strong> with a description</li>
+                            <li><code class="higlighted">git commit -m --amend</code>=> If you make a mistake (commit) with the flag --amend you can rectify and concatenate the changes to the last commit.
+                                 If the -m "[description ...]" flag is used, the new message will overwrite the previous one, in case of not doing so the old one will be maintained.</li>
+                        </ul>
+                        <p>
+                            <strong>Tagging confirmations (git tag)</strong>
+                        </p>
+                        <ul >
+                            <li><code class="higlighted">git tag -a [1.x] -m "[description]"</code>=> Register a tag</li>
+                            <li><code class="higlighted">git tag -l</code>=> List exiting tag</li>
+                            <li><code class="higlighted">git tag [1.x] [Commit HASH]</code> =>It registers a tag to a specific commit through its HASH.</li>
+                            <li><code class="higlighted">git tag -f -a [1.x] -m "[description]" [Commit HASH]</code> =>Rename a tag</li>
+                            <li><code class="higlighted">git tag -d [1.x]</code> =>Delete a tag</li>
+                        </ul>
+                        <p>
+                            <strong>Reviewing the history of our project (git log)</strong>
+                        </p>
+                        <ul>
+                            <li><code class="higlighted">git log</code> => It shows the history of the records (commits)</li>
+                        </ul>
+                        <p>
+                            <strong>Reviewing changes between versions (git diff)</strong>                            
+                        </p>
+                        <ul>
+                            <li><code class="higlighted">git diff [commit HASH]</code>It shows the changes that have been made between the current status and the commit specified by your HASH.</li>
+                            <li><code class="higlighted">git diff [commit HASH #1] [commit HASH #2]</code></li>
+                        </ul>
+                        <p>
+                            When the comparisons are in <strong class="red">red, it means that things were removed</strong>
+                            instead if it <strong class="green">green, it means that things were add</strong>
+                        </p>    
+                        
+                        <p>
+                            <strong>Revert changes in Git</strong>
+                        </p>
+                        <p align="justify">
+                            - Starting from a Commit identified by its HASH, it eliminates all future Commits to it and <strong class="green">keeps</strong> all those changes (registered in the deleted Commits) in the <strong>Staging Area.</strong>  <br>
+                            <code class="higlighted">git reset --soft [HASH]</code><br><br>
+
+                            - Starting from a Commit identified by its HASH, it eliminates all future Commits to it and keeps all those changes (registered in the deleted Commits) in the <strong>Working Directory.</strong> <br>
+                            <code class="higlighted">git reset --mixed [HASH]</code> <br> <br>
+
+                            - Starting from a Commit identified by its HASH, it eliminates all future Commits to it and <strong class="read">does not keep</strong> the changes either in the <strong>Staging Area</strong> or in the <strong>Working Directory</strong> of the deleted Commits. <br>
+                            <code class="higlighted">git reset --hard [HASH]</code>
+                        </p>
+                        
+                        
+                        
+                    </p>
+                </div>
+
+                <div class="overflow-hidden content-section" id="content-get-Enviroments">
+                    <h2 id="get-Enviroments">Multiple work enviroments</h2>
+                    <pre><code>
+Create a new branch
+- git branch [name-branch]                        
+
+Create a new branch and position yourself in it
+- git checkout -b [name-branch]
+
+List all the branches that exist
+- git branch -l
+
+Delete a branch
+-  git branch -d [name-branch]
+
+Rename a new branch
+- git branch -m [old-name-branch] [new-name-branch]
+
+                    </code></pre>
+
+                    <p align="justify">
+                    <strong>Multiple variants of the repository (git branch)</strong> <br>
+                    A branch is an alternate timeline (of the project). The default branch is <code class="red higlighted">master</code>, the GitHub Pages branch is <code class="red higlighted">gh-pages</code> and when working as a collaborator the main project is identified with the branch <code class="red higlighted">upstream.</code>                                        
+                    </p>
+
+                    <ul>
+                        <li><code class="higlighted">git branch [name-branch]</code> => Create a new branch</li>
+                        <li><code class="higlighted">git checkout -b [name-branch]</code> => Create a new branch and position yourself in it</li>
+                        <li><code class="higlighted">git branch -l</code> => List all the branches that exist</li>
+                        <li><code class="higlighted">git branch -d [name-branch]</code> => Delete a branch, with <code class="red, higlighted">-D</code> deletion force the delete</li>
+                        <li><code class="higlighted">git branch -m [old-name-branch] [new-name-branch]</code> => It allows to rename a new branch</li>
+                    </ul>
+
+                    <p align="justify">
+                        <strong>Moving between branches and versions (git checkout)</strong> <br>
+                        -This allows moving between branches or between commits of a branch: <br>
+                        <code class="higlighted">git checkout [name-branch or commit-HASH</code>
+                    </p>
+
+                </div>
+        
+                
+            </div> <br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="content-code"></div>
+        </div>
+        <!-- Github Corner Ribbon - to remove (Ribbon created with : http://tholman.com/github-corners/ )-->
+        <a href="https://github.com/ticlekiwi/API-Documentation-HTML-Template" class="github-corner" aria-label="View source on Github" title="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="z-index:99999; fill:#70B7FD; color:#fff; position: fixed; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+        <!-- END Github Corner Ribbon - to remove -->
+        <script src="js/libs/jquery.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>
