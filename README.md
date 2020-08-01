@@ -1,4 +1,8 @@
-### Basic configuration
+### Basic configuration (git config --global)
+List all confugurations.
+```
+$ git config --global l OR $ git config --global list 
+```
 Configure name that come out in commits.
 ```
 $ git config --global user.name "Alejo"
@@ -11,29 +15,37 @@ Color frame for commands.
 ```ssh
 $ git config --global color.ui true
 ```
+In order to disable SSL certificates and download the project locally.
+```ssh
+$ git config --global http.sslVerify false
+```
+To allow downloading with proxy problems.
+```ssh
+$ git config --global --unset http.proxy 
+```
+To change the editor when you need to enter information.
+```ssh
+$ git config --global core.edito "code --wait" 
+```
 
-## Create repository
+To remove configured parameters.
+```ssh
+$ git --global --unset-all core.editor 
+```
+
+## Create repository (git init)
 We start GIT in the folder where the project is:
 ```ssh
 $ git init
 ```
 
-The first commit.
-```ssh
-$ git commit -m "description"
-```
-Save to repository.
-```ssh
-$ git push origin master
-```
-
-## GIT CLONE
+## Clone repository (git clone)
 Clone the repository.
 ```ssh
 $ git clone <url>
 ```
 
-## GIT ADD
+## Add file to the stanging area (git add)
 Add all the files for the commit.
 ```ssh
 $ git add . 
@@ -58,8 +70,7 @@ We add all the files inside a directory.
 ```ssh
 $ git add src/
 ```
-## GIT COMMIT
-
+##  Commit (git commit)
 Upload the changes made to the HEAD.
 ```ssh
 $ git commit -m "Text that identifies why the commit was made"
@@ -76,7 +87,30 @@ Add to the last commit, this is not shown as a new commit in the logs. A new mes
 ```ssh
 $ git commit --amend -m "Text that identifies why the commit was made"
 ```
-## GIT PUSH
+
+## Branches (git branch)
+Create a branch
+```ssh
+$ git branch <nameBranch
+```
+
+
+Delete a branch
+```ssh
+$ git branch -d <branch-name>
+```
+
+List branches and show the last commit
+```ssh
+$ git branch -v ---- listar ramas y muestra último commit 
+```
+Rename branch
+```ssh
+$ git branch -m <OldNamebranch> <NewNameBranch>
+```
+
+
+## Push changes(git push)
 
 Upload to repository.
 ```ssh
@@ -86,7 +120,20 @@ Upload a tag.
 ```ssh
 $ git push --tags
 ```
-## GIT LOG
+Upload the tags from master to origin.
+```ssh
+$ git push origin master --tags
+```
+Send from a local branch to a remote branch.  
+```ssh
+$ git push origin <branch-local>:<branch-remote>
+```
+Remove remote branch
+```ssh
+$ git push origin -- delete <name-branch>
+```
+
+## History commits (git log)
 Show the logs for commits.
 ```ssh
 $ git log
@@ -99,13 +146,14 @@ Show graphs on the commit.
 ```ssh
 $ git log --oneline --graph
 ```
-## GIT DIFF
-
+## Differences (git diff)
 Show changes made to a file.
 ```ssh
-$ git diff 
+$ git diff <tag> 
+$ git diff <SHA1> 
+$ git diff <tag1> <tag2> 
 ```
-## GIT HEAD
+## Reset file (git reset)
 Remove a file from the commit.
 ```ssh
 $ git reset HEAD <file>
@@ -127,7 +175,11 @@ Rollback merge/commit.
 $ git log
 $ git reset --hard <commit_sha>
 ```
-## GIT REMOTE
+To recover the SHA1 lost by a reset.
+```ssh
+$ git reflog 
+```
+## Remote
 
 Add remote repository.
 ```ssh
@@ -154,7 +206,7 @@ Clean up all removed branches.
 ```ssh
 $ git remote prune origin 
 ```
-## GIT BRANCH
+## Branch (git branches)
 
 Create a branch.
 ```ssh
@@ -173,7 +225,7 @@ Delete without asking.
 ```ssh
 $ git branch -D <nameBranch>
 ```
-## GIT TAG
+## Tags (git tags)
 Show a list of all tags.
 ```ssh
 $ git tag
@@ -182,7 +234,7 @@ Create a new tag.
 ```ssh
 $ git tag -a <version> - m "This is the version X"
 ```
-## GIT REBASE
+## Rebase (git rebase)
 
 The rebases are used when we work with branches this makes the branches catch up with the master without affecting it.
 
@@ -208,29 +260,47 @@ To rebase a specific branch.
 ```ssh	
 $ git rebase <nameBranch>
 ```
-## Another commands
 
+## Status(git status)
 List a current repository status with list of modified or added files.
 ```ssh
 $ git status
 ```
+
+# Checkout (git checkout)
 Removes a file from HEAD and sets it to not working.
 ```ssh
 $ git checkout -- <file>
 ```
-
 Create a branch based on one online.
 ```ssh
 $ git checkout -b newlocalbranchname origin/branch-name
-```
-Check for new changes and update the repository.
-```ssh
-$ git pull origin <nameBranch>
 ```
 Change the branche.
 ```ssh
 $ git checkout <nameBranch/tagname>
 ```
+
+## Pull changes (git pull)
+
+Check for new changes and update the repository.
+```ssh
+$ git pull origin <nameBranch>
+```
+
+## Save version (git tag)
+Allows us to add tags to our changes.
+```ssh
+$ git tag
+$ git tag -a (-a annotations)
+$ git tag -m (-m message)
+$ git tag -l (-l show the list of tags)
+$ git tag -f (-f rename tag)
+$ git tag -d (-d delete)
+```
+
+## Another commands 
+
 Check for new changes and update the repository.
 ```ssh
 $ git merge <nameBranch>
@@ -239,10 +309,22 @@ Verify changes in the online repository with the local.
 ```ssh
 $ git fetch
 ```
+
+## Remove file (git rm)
 Remove a file from the repository.
 ```ssh
 $ git rm <file> 
 ```
+Return form the stangin area to working directory
+```ssh
+$ git rm --cached <file>
+```
+It allows removing a commit from one branch and putting it in another, this can happen when changes are added to a branch that were not due, but to avoid losing those changes, use that command.
+```ssh
+$ git cherry-pick <SHA1> 
+```
+
+
 ## Fork
 
 Download remote form a fork
