@@ -1,3 +1,7 @@
+<img src="markdownmonstericon.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
+
 ### Basic configuration
 Configure name that come out in commits.
 ```
@@ -252,6 +256,6 @@ $ git remote add upstream <url>
 
 Merge with master from a fork
 ```
-	git fetch upstream
-	git merge upstream/master
+$ git fetch upstream
+$ git merge upstream/master
 ```
