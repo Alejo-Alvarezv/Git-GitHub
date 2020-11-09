@@ -1,7 +1,7 @@
 ### Basic configuration (git config --global)
 List all confugurations.
 ```
-$ git config --global l OR $ git config --global list 
+$ git config --list
 ```
 Configure name that come out in commits.
 ```
