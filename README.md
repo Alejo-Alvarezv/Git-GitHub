@@ -1,5 +1,5 @@
 ### Basic configuration (git config --global)
-`List all configurations.`
+List all configurations.
 ```yaml 
 -  git config --list 
 -  git config -l
