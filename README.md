@@ -1,7 +1,8 @@
 ### Basic configuration (git config --global)
-List all confugurations.
-```
-$ git config --list
+List all configurations.
+``` 
+$ git config --list OR
+$ git config -l
 ```
 Configure name that come out in commits.
 ```
@@ -25,14 +26,20 @@ $ git config --global --unset http.proxy 
 ```
 To change the editor when you need to enter information.
 ```ssh
-$ git config --global core.edito "code --wait" 
+$ git config --global core.editor "code --wait" 
 ```
-
 To remove configured parameters.
 ```ssh
 $ git --global --unset-all core.editor 
 ```
-
+To remove an specific parameter.
+```ssh
+$ git --global --unset-all user.name "Name user"
+```
+Change a global configuration.
+```ssh
+$ git config --global --replace user.name "Modified name" 
+```
 ## Create repository (git init)
 We start GIT in the folder where the project is:
 ```ssh
@@ -48,7 +55,8 @@ $ git clone <url>
 ## Add file to the stanging area (git add)
 Add all the files for the commit.
 ```ssh
-$ git add . 
+$ git add . OR
+$ git add -A
 ```
 We add the files for the commit.
 ```ssh
@@ -77,7 +85,8 @@ $ git commit -m "Text that identifies why the commit was made"
 ```
 Add and load the changes made to the HEAD.
 ```ssh
-$ git commit -a -m "Text that identifies why the commit was made"
+$ git commit -a -m "Text that identifies why the commit was made" OR
+$ git commit -am "Text that identifies why the commit was made"
 ```
 If there are conflicts it shows them.
 ```ssh
@@ -138,20 +147,37 @@ Show the logs for commits.
 ```ssh
 $ git log
 ```
+Show the logs for commits about an specific file.
+```ssh 
+$ git log <File_Name>
+```
 Show changes on the commits.
 ```ssh
-$ git log --oneline --stat
+$ git log --oneline --stat OR
+$ git log --oneline --decorate
 ```
 Show graphs on the commit.
 ```ssh
 $ git log --oneline --graph
+```
+Save log into a file
+```ssh
+$ git log > log.txt
+```
+look for commits that comply regardless of upper or lower case
+```ssh
+$ git log --grep "INVIE" -i
+```
+look for commits by an specific author.
+```ssh
+$ git log --author "Name_Author"
 ```
 ## Differences (git diff)
 Show changes made to a file.
 ```ssh
 $ git diff <tag> 
 $ git diff <SHA1> 
-$ git diff <tag1> <tag2> 
+$ git diff <old_tag> <tag2> 
 ```
 ## Reset file (git reset)
 Remove a file from the commit.
@@ -309,14 +335,18 @@ Verify changes in the online repository with the local.
 ```ssh
 $ git fetch
 ```
+It shows us the changes that have existed over the last two commit
+```ssh
+$ git show
+```
 
 ## Remove file (git rm)
 Remove a file from the repository.
 ```ssh
 $ git rm <file> 
 ```
-Return form the stangin area to working directory
-```ssh
+Return form the stangin area to working directory (delete file from stanging)
+```code
 $ git rm --cached <file>
 ```
 It allows removing a commit from one branch and putting it in another, this can happen when changes are added to a branch that were not due, but to avoid losing those changes, use that command.
@@ -324,14 +354,12 @@ It allows removing a commit from one branch and putting it in another, this can 
 $ git cherry-pick <SHA1> 
 ```
 
-
 ## Fork
 
 Download remote form a fork
 ```
 $ git remote add upstream <url>
 ```
-
 Merge with master from a fork
 ```
 $ git fetch upstream
