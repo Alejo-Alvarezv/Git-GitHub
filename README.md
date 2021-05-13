@@ -28,6 +28,9 @@
 - Git is different to github
 - Keep track of changes
 - Coordinate the work of several people or work teams
+- **Working directory**: It is a copy of a version of the project. These files are taken from the compressed database in the **.git** directory and placed on disk so that you can use or modify them.
+- **Stanging area**: It is the place where the changes are temporarily saved, to later be permanently saved in the repository, sometimes it is called "Index"
+- **.git (local repository)** : is where the change history of our files is stored, metadata and the object database are stored, it is the most important part of git
 
 <p align="center">
 <img height="200" src="https://github.com/alejoalvarez/Images/blob/trunk/git/basic%20information%20about%20git%201.png">
@@ -137,10 +140,9 @@ States for files
 - **Untracket**: The file does not live in git, only on the disk (it is only in the **working directory**)
 - **Unstaged**: These are files that git has records of its changes but they are out of date.
 - **Staged**: Files that have been sent staged with **git add**
-- **Tracket**: The files live inside the repository are updated and have no pending changes
+- **Tracket**: The files live inside the **repository** are updated and have no pending changes
 - **Modified**: means that you have modified the file but have not yet confirmed them to your database
 - **Committed**: files that are safely stored in your database
-
 
 **git show**
 shows all the changes we have made, this includes the lines we have changed, when and who made those changes
@@ -156,6 +158,11 @@ It allows us to see the complete history of a file
 git log <file>
 ```
 
+Allows you to see the commits and mergers graphically
+```sh
+git log --online --decorate
+```
+
 ## Create a commit (git add and git commit)
 
 **add**
@@ -163,7 +170,7 @@ git log <file>
 <img height="400" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20add%201.png">
 </p>
 
-Send your file to **stanging area** where it is temporarily saved before being sent to the **repository**
+Send your file to **stanging area** where it is temporarily saved before being sent to the **repository**, move a file from untracked or unstaged to staged
 
 ```sh
 git add <file>
@@ -181,7 +188,7 @@ git add -A
 <img height="400" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20commit%201.png">
 </p>
 
-send the file to the **repository** committing the changes made and leaving a user message when adding -m
+send the file to the **repository** committing the changes made and leaving a user message when adding -m (move the files from **working directory**  to **local repository**)
 
 ```sh
 git commit -m "Message for commit"
@@ -191,4 +198,12 @@ This commando combenes add and commit (It will only work if the files have alrea
 
 ```sh
 git commit -am "Message"
+```
+
+## Differences between commits (git diff)
+
+It allows us to see the difference between one version and another specifically, to obtain the IDs (SHA1) of your commits you use the **git log** command, git will give you the response with the changes made between the two commits (recommended to put the oldest commit at the beginning, since git takes the former as the older of the two)
+
+```sh
+git diff commit1 commit2
 ```
