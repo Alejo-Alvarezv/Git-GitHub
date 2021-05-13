@@ -30,7 +30,7 @@
 - Coordinate the work of several people or work teams
 
 <p align="center">
-<img height="400" src="https://github.com/alejoalvarez/Images/blob/trunk/git/basic%20information%20about%20git%201.png">
+<img height="200" src="https://github.com/alejoalvarez/Images/blob/trunk/git/basic%20information%20about%20git%201.png">
 </p>
 
 - Git is a VCS
@@ -41,7 +41,7 @@
 - We can travel back in time to review changes made in the past to the git repository
 
 <p align="center">
-<img height="400" src="https://github.com/alejoalvarez/Images/blob/trunk/git/basic%20information%20about%20git%202.png">
+<img height="140" src="https://github.com/alejoalvarez/Images/blob/trunk/git/basic%20information%20about%20git%202.png">
 </p>
 
 ## Basic configuration git
