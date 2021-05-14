@@ -114,7 +114,7 @@ git help config <command>
 ## Create a repository (git init)
 
 <p align="center">
-<img height="400" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20init%201.png">
+<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20init%201.png">
 </p>
 
 We start GIT in the folder where the project is:
@@ -194,7 +194,7 @@ git log --author "name_author"
 
 **add**
 <p align="center">
-<img height="400" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20add%201.png">
+<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20add%201.png">
 </p>
 
 Send your file to **stanging area** where it is temporarily saved before being sent to the **repository**, move a file from untracked or unstaged to staged
@@ -227,7 +227,7 @@ git add src/
 
 **commit**
 <p align="center">
-<img height="400" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20commit%201.png">
+<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20commit%201.png">
 </p>
 
 send the file to the **repository** committing the changes made and leaving a user message when adding -m (move the files from **working directory**  to **local repository**)
@@ -250,6 +250,13 @@ git commit --amend -m "Text that identifies why the commit was made"
 ## Differences between commits (git diff)
 
 It allows us to see the difference between one version and another specifically, to obtain the IDs (SHA1) of your commits you use the **git log** command, git will give you the response with the changes made between the two commits (recommended to put the oldest commit at the beginning, since git takes the former as the older of the two)
+
+
+Compare working directory with stanging area
+
+```sh
+git diff
+```
 
 ```sh
 git diff commit1 commit2
@@ -309,11 +316,17 @@ You use checkout to create a new branch from the commit you want of your master 
 Change the branche.
 ```sh
 git checkout <name-branch>
+git checkout <branch> <file>
 ```
 
 Create a branch based on one online.
 ```sh
 git checkout -b new-local-branch-name origin/branch-name
+```
+
+Allows you to go back to any previous version without deleting the file's history
+```sh
+git checkout <commit-id>
 ```
 
 Removes a file from HEAD and sets it to not working.
@@ -333,3 +346,58 @@ git merge <name-banch>
 
 it should be noted that there may be conflicts between the branches
 
+
+## go back in time (git reset)
+
+If you "want to go back in time" and go back to a previous version of your file you can use **git reset**
+
+**git reset** Allows you to go back in time without being able to go back to the future
+
+Ways to use git reset:
+
+- delete all the registration information that we have even what is in stanging area
+
+**reset hard**
+- delete all the registration information that we have even what is in stanging area
+```sh
+git reset --hard 
+```
+
+- starting from commit-id, remove all future commits to it and does not and keep changes in stanging are or in working directory
+```sh
+git reset <commit-id> --mixed
+```
+
+**reset soft**
+- delete the changes you have made to your file but what is in stanging remains there, give you the possibility to apply the changes later.
+```sh
+git reset --soft
+```
+
+- starting from commit-idX, remove all future commits to it and keep all those changes in the stanging area
+```sh
+git reset <commit-id> --soft 
+```
+
+**reset mixed**
+- match the local repository to the working directory
+```sh
+git reset --mixed
+```
+
+- starting from commit-id, remove all future commits to it and keep all those changes in the working directory
+```sh
+git reset <commit-id> --mixed
+```
+
+**reset HEAD**
+- move the changes from stanging area to unstaged, the last changes are kept, the repository still has the file with the changes made in the commit
+```sh
+git reset --HEAD
+```
+
+## Difference between git reset and git rm
+
+<p align="center">
+<img height="350" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20reset%20vs%20git%20rm.png">
+</p>
