@@ -154,13 +154,40 @@ git show
 **git log**
 It allows us to see the complete history of a file
 
+See all files
+```sh
+git log
 ```
-git log <file>
+
+See an specify file
+```sh
+git log <file-name>
 ```
 
 Allows you to see the commits and mergers graphically
 ```sh
 git log --online --decorate
+git log --oneline --graph
+```
+
+Save log into a file
+```sh
+git log > log-name.txt
+```
+
+Look for the commits that fulfill as is what is written in quotes
+```sh
+git log --grep "Example"
+```
+
+Look for commits that comply regardless of upper or lower case
+```sh
+git log --grep "Example" -i
+```
+
+look for commits by an specific author.
+```sh
+git log --author "name_author"
 ```
 
 ## Create a commit (git add and git commit)
@@ -183,6 +210,21 @@ git add .
 git add -A
 ```
 
+* add all files with the specified extension for example (.txt).
+```sh
+git add *.txt
+```
+
+* add all the files inside a directory and with a specific extension.
+```sh
+git add src/*.txt
+```
+
+* add all the files inside a directory.
+```ssh
+git add src/
+```
+
 **commit**
 <p align="center">
 <img height="400" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20commit%201.png">
@@ -200,6 +242,11 @@ This commando combenes add and commit (It will only work if the files have alrea
 git commit -am "Message"
 ```
 
+* Add to the last commit, this is not shown as a new commit in the logs. A new message can be specified.
+```sh
+git commit --amend -m "Text that identifies why the commit was made"
+```
+
 ## Differences between commits (git diff)
 
 It allows us to see the difference between one version and another specifically, to obtain the IDs (SHA1) of your commits you use the **git log** command, git will give you the response with the changes made between the two commits (recommended to put the oldest commit at the beginning, since git takes the former as the older of the two)
@@ -207,3 +254,82 @@ It allows us to see the difference between one version and another specifically,
 ```sh
 git diff commit1 commit2
 ```
+
+```sh
+git diff <tag1> <tag2>
+```
+
+## Branches (git branch)
+
+When you create your repository in your working folder, a main branch called **master** is created by default (this name can be modified)
+
+it can be seen as the linear map of the commits you have made to the file
+
+**branch**
+
+Create a branch
+```sh
+git branch <name-Branch
+```
+
+List branches
+```sh
+git branch
+```
+
+List branches and show the last commit
+```sh
+git branch -v
+```
+
+Rename branch
+```sh
+git branch -m <old-name-branch> <new-name-branch>
+```
+
+Delete a branch
+```sh
+git branch -d <branch-name>
+```
+
+**-d** command removes the branch and joins it to the master.
+```sh
+git branch -d <name-branch>
+```
+
+Delete without asking.
+```sh
+git branch -D <name-branch>
+```
+
+## Checkout (git checkout)
+
+You use checkout to create a new branch from the commit you want of your master branch, this branch serves you to make experiments, changes or repair errors in your main code without affecting it
+
+Change the branche.
+```sh
+git checkout <name-branch>
+```
+
+Create a branch based on one online.
+```sh
+git checkout -b new-local-branch-name origin/branch-name
+```
+
+Removes a file from HEAD and sets it to not working.
+```sh
+git checkout -- <file>
+```
+
+## Merge (git merge)
+
+To join the changes between branches, merge is used, in this way the two branches will be joined to form a single
+
+
+* Join the branch
+```sh
+git merge <name-banch>
+```
+
+it should be noted that there may be conflicts between the branches
+
