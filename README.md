@@ -437,9 +437,13 @@ We obtain a copy of the master or main branch from the remote repository to the 
 <img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20push%201.png">
 </p>
 
-## upload changes to the remote repository (git push)
+## Upload changes to the remote repository (git push)
 
 It allows us to send the changes to the remote server or repository
+
+<p align="center">
+<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20push%201.png">
+</p>
 
 Upload to repository.
 ```sh
@@ -465,3 +469,35 @@ Remove remote branch
 ```sh
 git push origin -- delete <name-branch>
 ```
+
+## bring updates from the remote (git fetch) 
+
+It is used to bring updates from the remote server and save them in our local repository (in case there are, of course)
+
+<p align="center">
+<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20fetch%201.png">
+</p>
+
+```sh
+git fetch 
+```
+
+## Combine changes to working directory (git merge)
+
+It is used to combine the latest changes from the remote server and our working directory, it is used in conjunction with the **git fetch** command
+
+<p align="center">
+<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20merge%201.png">
+</p>
+
+
+## bring updates from the remote  (git pull)
+
+Join **git fetch** and **git merge**, basically used to fetch updates from the remote server by saving them to our local repository, and merge the latest changes from the remote server into our working directory
+
+<p align="center">
+<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20pull%201.png">
+</p>
+
+this way we can have an updated copy of our project stored on the remote server
+
