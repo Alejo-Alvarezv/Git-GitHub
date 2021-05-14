@@ -396,8 +396,72 @@ git reset <commit-id> --mixed
 git reset --HEAD
 ```
 
+To recover the SHA1 lost by a reset.
+```sh
+git reflog 
+```
+
+## Remove file (git rm)
+
+Remove a file from the repository.
+```sh
+git rm <file> 
+```
+
+Return form the stangin area to working directory (delete file from stanging)
+```sh
+git rm --cached <file>
+```
+
+It allows removing a commit from one branch and putting it in another, this can happen when changes are added to a branch that were not due, but to avoid losing those changes, use that command.
+```sh
+git cherry-pick <SHA1> 
+```
+
 ## Difference between git reset and git rm
+
+- ```git rm``` just delete files (either from stanging or from the workind directory
+
+- ```git reset``` send you to old versions and delete files, history and records
 
 <p align="center">
 <img height="350" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20reset%20vs%20git%20rm.png">
 </p>
+
+
+## Clone remote repository (git clone)
+
+We obtain a copy of the master or main branch from the remote repository to the **working directory** and create the database of all the historical files in the **local repository**, leaving it stanging clean and ready to be used
+
+<p align="center">
+<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20push%201.png">
+</p>
+
+## upload changes to the remote repository (git push)
+
+It allows us to send the changes to the remote server or repository
+
+Upload to repository.
+```sh
+git push origin <branch-name>
+```
+
+Upload a tag.
+```sh
+git push --tags
+```
+
+Upload the tags from master to origin.
+```sh
+git push origin master --tags
+```
+
+Send from a local branch to a remote branch.
+```sh
+git push origin <branch-local>:<branch-remote>
+```
+
+Remove remote branch
+```sh
+git push origin -- delete <name-branch>
+```
