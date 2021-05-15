@@ -237,6 +237,7 @@ git commit -m "Message for commit"
 ```
 
 This commando combenes add and commit (It will only work if the files have already been previously applied a **git add**):
+git add + git commit 
 
 ```sh
 git commit -am "Message"
@@ -272,6 +273,14 @@ When you create your repository in your working folder, a main branch called **m
 
 it can be seen as the linear map of the commits you have made to the file
 
+Branches are the way to make changes in our project without affecting the workflow of the main branch, this is because we want to work in a very specific part of the application or because we simply want to experiment
+
+The HEAD header represents the branch and the commit of that branch where we are working, by default this header will appear in the last commit of our main branch,
+
+<p align="center">
+<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20branch.png">
+</p>
+
 **branch**
 
 Create a branch
@@ -279,9 +288,9 @@ Create a branch
 git branch <name-Branch
 ```
 
-List branches
+List all branches
 ```sh
-git branch
+git branch -l 
 ```
 
 List branches and show the last commit
@@ -299,14 +308,14 @@ Delete a branch
 git branch -d <branch-name>
 ```
 
-**-d** command removes the branch and joins it to the master.
-```sh
-git branch -d <name-branch>
-```
-
 Delete without asking.
 ```sh
 git branch -D <name-branch>
+```
+
+Move all existing changes in your master branch to the new main branch
+```sh
+git branch -M <main>
 ```
 
 ## Checkout (git checkout)
@@ -317,6 +326,11 @@ Change the branche.
 ```sh
 git checkout <name-branch>
 git checkout <branch> <file>
+```
+
+creates a branch and positions itself on it
+```sh
+git checkout -b <brnach-name>
 ```
 
 Create a branch based on one online.
@@ -491,7 +505,20 @@ It is used to combine the latest changes from the remote server and our working 
 </p>
 
 
-## bring updates from the remote  (git pull)
+The git merge command allows us to create a new commit with the combination of two branches (the branch where we are when we execute the command and the branch that we indicate after the command).
+
+Create a new commit in the master branch by combining the **branch-name** changes:
+```sh
+git checkout master
+git merge <branch-name>
+```
+
+if we have made a merge with a branch with which we did not want
+```sh
+git reset --merge HEAD
+```
+
+## bring updates from the remote  (git pull =  git fetch + git merge)
 
 Join **git fetch** and **git merge**, basically used to fetch updates from the remote server by saving them to our local repository, and merge the latest changes from the remote server into our working directory
 
@@ -501,3 +528,36 @@ Join **git fetch** and **git merge**, basically used to fetch updates from the r
 
 this way we can have an updated copy of our project stored on the remote server
 
+## Remote
+
+if we want to connect the github repository with our local repository we must execute the following:
+
+- Add remote repository.
+```sh
+git remote add origin <url-github>
+```
+
+- List the repositories.
+```sh
+git remote -v
+```
+
+- Change the remote.
+```sh
+git remote set-url origin <url>
+```
+
+- Delete repository.
+```ssh
+git remote rm <name/origin>
+```
+
+- Show all remote branches.
+```sh	
+git remote show origin
+```
+
+- Clean up all removed branches.
+```sh
+git remote prune origin 
+```
