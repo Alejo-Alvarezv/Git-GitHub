@@ -632,3 +632,35 @@ Merge with master from a fork we can use
 ```
 git pull upstream <branch>
 ```
+
+## Rebase (git rebase)
+
+The rebases are used when we work with branches this makes the branches catch up with the master without affecting it.
+
+Join the current branch with the master, this cannot be seen as a merge.
+```sh
+git rebase
+```
+
+When a conflict occurs you don't give the following options:
+
+When we resolve conflicts --continue continue the rebase sequence where it paused.
+```sh	
+git rebase --continue 
+```
+
+Skip the conflict and go your way.
+```sh
+
+git rebase --skip
+```
+
+Returns everything at the beginning of the rebase.
+```sh
+git reabse --abort
+```
+
+To rebase a specific branch.
+```sh	
+git rebase <nameBranch>
+```
