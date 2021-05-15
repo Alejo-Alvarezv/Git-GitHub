@@ -31,6 +31,7 @@
 - **Working directory**: It is a copy of a version of the project. These files are taken from the compressed database in the **.git** directory and placed on disk so that you can use or modify them.
 - **Stanging area**: It is the place where the changes are temporarily saved, to later be permanently saved in the repository, sometimes it is called "Index"
 - **.git (local repository)** : is where the change history of our files is stored, metadata and the object database are stored, it is the most important part of git
+- gitk - tool for show git graphically
 
 <p align="center">
 <img height="200" src="https://github.com/alejoalvarez/Images/blob/trunk/git/basic%20information%20about%20git%201.png">
@@ -285,12 +286,17 @@ The HEAD header represents the branch and the commit of that branch where we are
 
 Create a branch
 ```sh
-git branch <name-Branch
+git branch <name-branch>
 ```
 
 List all branches
 ```sh
 git branch -l 
+```
+
+Another way for list all branches 
+```sh
+git show-branch --all
 ```
 
 List branches and show the last commit
@@ -330,12 +336,12 @@ git checkout <branch> <file>
 
 creates a branch and positions itself on it
 ```sh
-git checkout -b <brnach-name>
+git checkout -b <branch-name>
 ```
 
 Create a branch based on one online.
 ```sh
-git checkout -b new-local-branch-name origin/branch-name
+git checkout -b <new-local-branch-name> origin/branch-name
 ```
 
 Allows you to go back to any previous version without deleting the file's history
@@ -526,6 +532,11 @@ Join **git fetch** and **git merge**, basically used to fetch updates from the r
 <img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20pull%201.png">
 </p>
 
+Check for new changes and update the repository.
+```sh
+git pull origin <nameBranch>
+```
+
 this way we can have an updated copy of our project stored on the remote server
 
 ## Remote
@@ -560,4 +571,64 @@ git remote show origin
 - Clean up all removed branches.
 ```sh
 git remote prune origin 
+```
+
+## Asign version to commits (git tag)
+
+The tags allow us to assign versions to the commits with the most important or significant changes in our project.
+
+Show a list of all tags.
+```sh
+git tag
+```
+
+Create a new tag.
+```sh
+git tag -a <version-or-name> - m "This is the version X"
+```
+
+create a new tag and assign it to a commit:
+
+```sh
+git tag -a <name-tag> <id-commit>
+```
+
+delete a tag in the local repository:
+
+```sh
+git tag -d <name-tag>
+```
+
+list the tags of our local repository:
+
+```sh
+git tag 
+```
+list the tags of our local repository with the HASH:
+```sh
+git show-ref --tags
+```
+
+post a tag to the remote repository
+```sh
+git push origin --tags
+```
+
+delete a tag from the remote repository:
+
+```sh
+git tag -d <name-tag> and
+git push origin :refs/tags/name-tag
+```
+
+## Fork 
+
+Download remote form a fork
+```sh
+git remote add upstream <url>
+```
+
+Merge with master from a fork we can use 
+```
+git pull upstream <branch>
 ```
