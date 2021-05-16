@@ -167,8 +167,8 @@ git log <file-name>
 
 Allows you to see the commits and mergers graphically
 ```sh
-git log --online --decorate
-git log --oneline --graph
+git log --all --online --decorate
+git log --all --oneline --graph
 ```
 
 Save log into a file
@@ -322,6 +322,16 @@ git branch -D <name-branch>
 Move all existing changes in your master branch to the new main branch
 ```sh
 git branch -M <main>
+```
+
+allows you to see remote branches on your server
+```sh
+git branch -r 
+```
+
+shows you local and remote branches
+```sh
+git branch - a 
 ```
 
 ## Checkout (git checkout)
@@ -604,6 +614,7 @@ list the tags of our local repository:
 ```sh
 git tag 
 ```
+
 list the tags of our local repository with the HASH:
 ```sh
 git show-ref --tags
@@ -732,3 +743,29 @@ Sometimes we do a commit, but it turns out that we didn't want to send it becaus
 git commit --ammend
 ```
 
+## Others commands
+
+used to see the commits made by different people in order with all the data if we add "-c" it looks a little better
+```sh
+git blame "filename" 
+```
+
+it shows me the name of the people collaborating and the commits made by each one of them
+```sh
+git shortlog 
+```
+
+shows me the names and the amount in numbers of the commits they made
+```sh
+git shortlog -sn 
+```
+
+shows even deleted commits
+```sh
+git shortlog -sn --all 
+```
+
+same as above but skips counting merges
+```sh
+git shortlog -sn -all --no-merges 
+```
