@@ -633,9 +633,68 @@ Merge with master from a fork we can use
 git pull upstream <branch>
 ```
 
+## Stash 
+
+When we need to go back in time because we delete a line of code but we don't want to go to another branch because it would give us an error since we have to pass that "bad change" that we made in a scenario, we can use git stash to return the previous change we made.
+
+git stash is typical when we are changes that do not deserve a branch or do not deserve a rebase if we are not simply testing something and then you want to quickly revert to your previous version which is correct.
+
+The git stash command saves the current staging job to a list designed to be temporary called Stash, so that it can be retrieved in the future.
+
+```sh
+git stash
+```
+
+list stash
+```sh
+git stash list
+```
+
+remove all items from stash:
+```sh
+git stash clear
+```
+
+We can put a message in the stash, in order to differentiate them in git stash list in case we have several elements in the stash. This with:
+```sh
+git stash save "message"
+```
+
+To retrieve the last changes from the stash to your staging area use the command:
+```sh
+git stash pop
+```
+
+To apply changes to a specific stash and remove it from the stash:
+```sh
+git stash pop stash@{<num_stash>}
+```
+
+To resume the changes of a specific position of the Stash you can use the command:
+```
+git stash apply stash@{<num_stash>}
+```
+Where the <num_stash> you get it from the **git stash list**
+
+## clean (git clean)
+
+Sometimes we create files when we are doing our project that are not really part of our working directory, that should not be added and we know it.
+
+To know which files we are going to delete we type 
+```sh
+git clean --dry-run
+```
+
+To delete all the listed files (which are not folders) we type 
+```sh
+git clean -f
+```
+
 ## Rebase (git rebase)
 
 The rebases are used when we work with branches this makes the branches catch up with the master without affecting it.
+
+This command allows you to take one or more commits from another branch without having to do a complete merge. Thus, thanks to cherry-pick, we could apply the commits related to our functionality in our master branch without having to do a merge.
 
 Join the current branch with the master, this cannot be seen as a merge.
 ```sh
@@ -664,3 +723,12 @@ To rebase a specific branch.
 ```sh	
 git rebase <nameBranch>
 ```
+
+## rebuild commit (git commit --amend)
+
+Sometimes we do a commit, but it turns out that we didn't want to send it because something else was missing. We use git commit --amend, and what it will do is that the changes we made will be added to the previous commit.
+
+```sh
+git commit --ammend
+```
+
