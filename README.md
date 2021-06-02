@@ -36,7 +36,7 @@ git offers:
 - gitk - tool for show git graphically
 
 <p align="center">
-<img height="200" src="https://github.com/alejoalvarez/Images/blob/trunk/git/basic%20information%20about%20git%201.png">
+<img height="200" src="https://user-images.githubusercontent.com/13514156/120523328-619da280-c39b-11eb-80a7-f1d85c621646.png">
 </p>
 
 - Git is a VCS
@@ -47,7 +47,7 @@ git offers:
 - We can travel back in time to review changes made in the past to the git repository
 
 <p align="center">
-<img height="140" src="https://github.com/alejoalvarez/Images/blob/trunk/git/basic%20information%20about%20git%202.png">
+<img height="140" src="https://user-images.githubusercontent.com/13514156/120523367-6c583780-c39b-11eb-8557-ef67d7dc7150.png">
 </p>
 
 ## Basic configuration git
@@ -117,7 +117,7 @@ git help config <command>
 ## Create a repository (git init)
 
 <p align="center">
-<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20init%201.png">
+<img height="250" src="https://user-images.githubusercontent.com/13514156/120523428-7da14400-c39b-11eb-9bf8-b3e7ca7c53f0.png">
 </p>
 
 We start GIT in the folder where the project is:
@@ -197,7 +197,7 @@ git log --author "name_author"
 
 **add**
 <p align="center">
-<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20add%201.png">
+<img height="250" src="https://user-images.githubusercontent.com/13514156/120523493-901b7d80-c39b-11eb-8735-bd30a59bee36.png">
 </p>
 
 Send your file to **stanging area** where it is temporarily saved before being sent to the **repository**, move a file from untracked or unstaged to staged
@@ -230,7 +230,7 @@ git add src/
 
 **commit**
 <p align="center">
-<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20commit%201.png">
+<img height="250" src="https://user-images.githubusercontent.com/13514156/120523532-9dd10300-c39b-11eb-9d3a-df7c87bb531e.png">
 </p>
 
 send the file to the **repository** committing the changes made and leaving a user message when adding -m (move the files from **working directory**  to **local repository**)
@@ -281,7 +281,7 @@ Branches are the way to make changes in our project without affecting the workfl
 The HEAD header represents the branch and the commit of that branch where we are working, by default this header will appear in the last commit of our main branch,
 
 <p align="center">
-<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20branch.png">
+<img height="250" src="https://user-images.githubusercontent.com/13514156/120523587-ade8e280-c39b-11eb-8ed6-7304624c842c.png">
 </p>
 
 **branch**
@@ -457,16 +457,15 @@ git cherry-pick <SHA1> 
 - ```git reset``` send you to old versions and delete files, history and records
 
 <p align="center">
-<img height="350" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20reset%20vs%20git%20rm.png">
+<img height="350" src="https://user-images.githubusercontent.com/13514156/120523662-c527d000-c39b-11eb-8c21-f082ae770ba9.png">
 </p>
-
 
 ## Clone remote repository (git clone)
 
 We obtain a copy of the master or main branch from the remote repository to the **working directory** and create the database of all the historical files in the **local repository**, leaving it stanging clean and ready to be used
 
 <p align="center">
-<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20push%201.png">
+<img height="250" src="https://user-images.githubusercontent.com/13514156/120523861-0b7d2f00-c39c-11eb-8267-139c431dc88b.png">
 </p>
 
 ## Upload changes to the remote repository (git push)
@@ -474,7 +473,7 @@ We obtain a copy of the master or main branch from the remote repository to the 
 It allows us to send the changes to the remote server or repository
 
 <p align="center">
-<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20push%201.png">
+<img height="250" src="https://user-images.githubusercontent.com/13514156/120523706-d40e8280-c39b-11eb-9464-30777a9d2024.png">
 </p>
 
 Upload to repository.
@@ -507,7 +506,7 @@ git push origin -- delete <name-branch>
 It is used to bring updates from the remote server and save them in our local repository (in case there are, of course)
 
 <p align="center">
-<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20fetch%201.png">
+<img height="250" src="https://user-images.githubusercontent.com/13514156/120523977-2780d080-c39c-11eb-8b01-94fefcf7564e.png">
 </p>
 
 ```sh
@@ -519,9 +518,8 @@ git fetch
 It is used to combine the latest changes from the remote server and our working directory, it is used in conjunction with the **git fetch** command
 
 <p align="center">
-<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20merge%201.png">
+<img height="250" src="https://user-images.githubusercontent.com/13514156/120524031-35365600-c39c-11eb-8928-38027cd924e4.png">
 </p>
-
 
 The git merge command allows us to create a new commit with the combination of two branches (the branch where we are when we execute the command and the branch that we indicate after the command).
 
@@ -541,7 +539,7 @@ git reset --merge HEAD
 Join **git fetch** and **git merge**, basically used to fetch updates from the remote server by saving them to our local repository, and merge the latest changes from the remote server into our working directory
 
 <p align="center">
-<img height="250" src="https://github.com/alejoalvarez/Images/blob/trunk/git/git%20pull%201.png">
+<img height="250" src="https://user-images.githubusercontent.com/13514156/120524073-42534500-c39c-11eb-9944-6a6e4c0ed850.png">
 </p>
 
 Check for new changes and update the repository.
